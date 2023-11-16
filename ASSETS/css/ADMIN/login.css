@@ -1,0 +1,81 @@
+body{
+    background: url('../../../ASSETS/img/IMG-Design/background.svg') no-repeat fixed bottom;
+}
+h1{
+    text-transform: uppercase;
+    color: #2d99ae;
+    margin-bottom: 36px;
+}
+
+.container{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.top-form{
+    text-align: center;
+}
+
+.top-form img{
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    border: thin solid #d3d5d7;
+    border-radius: 40px;
+    height: 48px;
+    color: #363636;
+    padding: 0 20px;
+    width: 100%;
+    outline: none;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.icon-eye,
+.icon-eye-slash {
+    position: absolute;
+    top: 13px;
+    right: 14px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.btn-login {
+    color: #fff;
+    display: inline-block;
+    padding: 0 30px;
+    cursor: pointer;
+    outline: none;
+    width: 280px;
+    background-color: #2d99ae;
+    border: none;
+    border-radius: 50px;
+    line-height: 64px;
+    font-weight: 500;
+    font-size: 24px;    
+}
+
+.btn-login:hover{
+    background-color: #0c5776;
+    transition: 0.3s;
+}
+
+.center-button {
+    text-align: center;
+    margin: 50px 0;
+}

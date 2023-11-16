@@ -1,0 +1,338 @@
+/* ===========lấy font từ Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main_color: #254753;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: url('../../ASSETS/img/IMG-Design/background.svg') no-repeat fixed bottom;
+}
+
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* bảng */
+
+.main-table thead {
+  background-color: #f2a496;
+  color: white;
+}
+
+.main-table th,
+.main-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+/*========================== Menu ==========================*/
+
+
+.menu {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background: var(--main_color);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.menu.active {
+  width: 0;
+}
+
+.top-menu {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-bottom: thin solid var(--white);
+  padding-bottom: 30px;
+}
+
+
+.top-menu #hello {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--white);
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.menu .top-menu img {
+  width: 120px;
+  height: 120px;
+}
+
+.top-menu #title_baogear{
+  font-size: 24px;
+  color: var(--white);
+  width: 200px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+font-weight: bold;;
+}
+
+.top-menu a {
+  font-size: 16px;
+  width: 78px;
+  color: var(--white);
+  z-index: 200;
+}
+
+.top-menu a:hover {
+  cursor: pointer;
+  color: rgba(255, 0, 0, 0.8);
+}
+
+
+.menu ul {
+  font-size: 20px ;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 285px;
+}
+
+
+.menu ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.menu ul li:hover,
+.menu ul li.hovered {
+  background-color: var(--white);
+}
+
+
+.menu ul li a {
+  position: relative;
+  display: block;
+  width: 250px;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+  padding: 10px 0px 10px 20px;
+}
+
+
+.menu ul li:hover a,
+.menu ul li.hovered a {
+  color: var(--main_color);
+}
+
+.menu ul li a i {
+  position: relative;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+}
+
+
+
+/* --------- Hieu ung hover ---------- */
+.menu ul li:hover a::before,
+.menu ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.menu ul li:hover a::after,
+.menu ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.menu ul li a i {
+  display: block;
+  margin-right: 20px;
+}
+
+
+/* ===================== content ===================== */
+.content {
+  position: absolute;
+  width: calc(100% - 250px);
+  left: 250px;
+  min-height: 100vh;
+  background: none;
+  transition: 0.5s;
+}
+
+.content.active {
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle a {
+  font-size: 36px;
+}
+
+.toggle:hover{
+  background-color: rgba(242, 164, 150, 0.4);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr td {
+  border: 1px solid;
+}
+
+tr td {
+  height: 50px;
+  text-align: center;
+}
+
+.content>form {
+  margin: 15px;
+}
+
+.content>form>button {
+  height: 50px;
+  width: 140px;
+  background-color: var(--main_color);
+  border: none;
+  border-radius: 30px;
+}
+
+.content>form>button>a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+.content>form>button:hover{
+  background-color:#fff;
+  border: 1px solid var(--main_color);
+  font-weight: bold;
+  transition: 0.3s;
+}
+.content>form>button:hover a{
+  color: var(--main_color);
+}
+
+
+.my_button {
+  display: flex;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  border-left: none;
+  border-top: none;
+
+}
+
+.my_button button {
+  border: none;
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.my_button button:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-screwdriver-wrench {
+  color: black;
+  font-size: 25px;
+}
+
+.fa-screwdriver-wrench:hover {
+  color: aqua;
+}
+
+/* Phân Trang */
+
+.main-table {
+  position: relative;
+}
+
+.btn-pagination {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+}
+
+.btn-page {
+  margin: 5px;
+  border: 1px solid;
+  background-color: var(--main_color);
+  font-size: 18px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  text-align: center;
+  align-items: center;
+}
+
+.btn-page.btn-page-active {
+  background-color: #ee6457; 
+  color: #fff; 
+}
+
+.btn-page a {
+  text-decoration: none;
+  color: var(--white);
+
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
