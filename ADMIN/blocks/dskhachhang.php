@@ -1,3 +1,37 @@
+<div id="filterDate-container">
+    <label for="ngaytao">Ngày tạo:</label>
+    <input type="date" id="ngaytao" name="ngaytao">
+    <button onclick="filterCustomersByDate()">Lọc</button>
+</div>
+
+<style>
+    #filterDate-container{
+        float: right;
+        padding: 0 50px 10px 0;
+    }
+
+    #filterDate-container input[type='date']{
+        margin: 0 4px;
+        height: 24px;
+        line-height: 24px;
+    }
+
+    #filterDate-container button{
+        padding: 2px 5px;
+        color: #fff;
+        background-color: #254753;
+        border: thin solid #254753;
+        cursor: pointer;
+        min-height: 24px;
+    }
+
+    #filterDate-container button:hover{
+        color: #254753;
+        background-color: #fff;
+        border: thin solid #254753;
+    }
+</style>
+
 <table class="main-table">
     <thead>
         <td>STT</td>
@@ -29,7 +63,12 @@
         }
         
         $startinglimit = ($npage-1)*$numberPages;
-        $sql = "select * from khachhang limit ".$startinglimit.','.$numberPages;
+        if (isset($_GET['ngaytao']) && !empty($_GET['ngaytao'])) {
+            $selectedDate = $_GET['ngaytao'];
+            $sql = "SELECT * FROM khachhang WHERE DATE(ngaytao) = '$selectedDate' LIMIT " . $startinglimit . ',' . $numberPages;
+        } else {
+            $sql = "SELECT * FROM khachhang LIMIT " . $startinglimit . ',' . $numberPages;
+        }        
         $result = mysqli_query($conn, $sql);
 
         $i = $startinglimit + 1;
@@ -50,3 +89,11 @@
     ?>
 
 </table>
+<script>
+    function filterCustomersByDate() {
+        var selectedDate = document.getElementById("ngaytao").value;
+
+        // Chuyển hướng đến trang với tham số ngaytao được chọn
+        window.location.href = 'index.php?page=dskhachhang&ngaytao=' + selectedDate;
+    }
+</script>

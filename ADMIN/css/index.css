@@ -238,29 +238,30 @@ tr td {
 }
 
 .content>form {
-  margin: 15px;
+  margin: 0 0 15px 15px;
 }
 
-.content>form>button {
+#themSP {
   height: 50px;
   width: 140px;
   background-color: var(--main_color);
   border: none;
   border-radius: 30px;
+  cursor: pointer;
 }
 
-.content>form>button>a {
+#themSP>a {
   text-decoration: none;
   color: white;
   font-size: 15px;
 }
-.content>form>button:hover{
+#themSP:hover{
   background-color:#fff;
   border: 1px solid var(--main_color);
   font-weight: bold;
   transition: 0.3s;
 }
-.content>form>button:hover a{
+#themSP:hover a{
   color: var(--main_color);
 }
 
