@@ -38,6 +38,8 @@
         <td>Mã Khách Hàng</td>
         <td>Tên Đăng Nhập</td>
         <td>Họ Tên</td>
+        <td>Ngày Sinh</td>
+        <td>Giới Tính</td>
         <td>Địa Chỉ</td>
         <td>Số Điện Thoại</td>
         <td>Email</td>
@@ -80,6 +82,8 @@
         <td><?php echo $row['makhachhang'] ?></td>
         <td><?php echo $row['tendangnhap'] ?></td>
         <td><?php echo $row['hoten'] ?></td>
+        <td><?php echo $row['ngaysinh'] ?></td>
+        <td><?php echo $row['gioitinh'] ?></td>
         <td><?php echo $row['diachi'] ?></td>
         <td><?php echo $row['sodienthoai'] ?></td>
         <td><?php echo $row['email'] ?></td>

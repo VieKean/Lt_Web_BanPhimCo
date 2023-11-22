@@ -21,6 +21,7 @@
         <td>Ngày Đặt Hàng</td>
         <td>Tổng Giá</td>
         <td>Phương Thức Thanh Toán</td>
+        <td>Tổng Sản Phẩm</td>
         <td>Trạng Thái</td>
         <td>Chi Tiết Đơn</td>
     </thead>
@@ -74,6 +75,7 @@
             <td><?php echo date('d/m/Y', strtotime($row['ngaydathang'])) ?></td>
             <td><?php echo $row['tonggia'] ?></td>
             <td><?php echo $row['phuongthucthanhtoan'] ?></td>
+            <td><?php echo $row['tongsanpham'] ?></td>
             <td><?php echo $row['trangthai'] ?></td>
             <td><a class="fa-solid fa-list" href="?page=dschitietdonhang&madonhang=<?php echo
                                                                                     $row['madonhang'];
