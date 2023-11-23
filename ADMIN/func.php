@@ -27,8 +27,10 @@ function layCTDH($conn, $madon)
 {
     if (isset($_GET['madonhang'])) {
         $madon = $_GET['madonhang'];
-        $sql = "select ct.madonhang, sp.tensanpham, ct.soluong from chitietdonhang ct, sanpham sp
-            where sp.masanpham = ct.masanpham and ct.madonhang = '$madon'";
+        $sql = "sELECT ctd.madonhang, kh.hoten, kh.sodienthoai, kh.diachi, sp.tensanpham,ctd.soluong,dh.tonggia,dh.phuongthucthanhtoan,dh.trangthai FROM chitietdonhang ctd, khachhang kh, donhang dh, sanpham sp 
+        WHERE ctd.madonhang = dh.madonhang
+        AND ctd.masanpham = sp.masanpham
+        AND dh.makhachhang = kh.makhachhang and ctd.madonhang = '$madon'";
     } else {
         $sql = "select ct.madonhang, sp.tensanpham, ct.soluong from chitietdonhang ct, sanpham sp
             where sp.masanpham = ct.masanpham ";
@@ -60,6 +62,7 @@ function layMaloai($conn, $id)
     $sql = "select * from loai where maloai = '$id'";
     return mysqli_query($conn, $sql);
 }
+
 
 
 ?>

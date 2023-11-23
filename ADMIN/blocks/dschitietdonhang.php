@@ -1,9 +1,15 @@
 <table class="main-table">
     <thead>
-        <td>STT</td>
+    <td>STT</td>
         <td>Mã Đơn Hàng</td>
+        <td>Họ Tên</td>
+        <td>Số Điện Thoại</td>
+        <td>Địa Chỉ</td>
         <td>Tên Sản Phẩm</td>
         <td>Số Lượng</td>
+        <td>Tổng Giá</td>
+        <td>Phương Thức Thanh Toán</td>
+        <td>Trạng Thái Đơn</td>
     </thead>
     
     <?php
@@ -31,8 +37,10 @@
         }
 
         $startinglimit = ($npage - 1) * $numberPages;
-        $sql = "select ct.madonhang, sp.tensanpham, ct.soluong FROM chitietdonhang ct, sanpham sp
-        WHERE sp.masanpham = ct.masanpham AND ct.madonhang = '$madon' LIMIT $startinglimit, $numberPages";
+        $sql = "sELECT ctd.madonhang, kh.hoten, kh.sodienthoai, kh.diachi, sp.tensanpham,ctd.soluong,dh.tonggia,dh.phuongthucthanhtoan,dh.trangthai FROM chitietdonhang ctd, khachhang kh, donhang dh, sanpham sp 
+        WHERE ctd.madonhang = dh.madonhang
+        AND ctd.masanpham = sp.masanpham
+        AND dh.makhachhang = kh.makhachhang AND ctd.madonhang = '$madon' LIMIT $startinglimit, $numberPages";
 
         $result = mysqli_query($conn, $sql);
 
@@ -41,10 +49,16 @@
     ?>
 
         <tbody>
-            <td><?php echo $i ?></td>
+        <td><?php echo $i ?></td>
             <td><?php echo $row['madonhang'] ?></td>
+            <td><?php echo $row['hoten'] ?></td>
+            <td><?php echo $row['sodienthoai'] ?></td>
+            <td><?php echo $row['diachi'] ?></td>
             <td><?php echo $row['tensanpham'] ?></td>
             <td><?php echo $row['soluong'] ?></td>
+            <td><?php echo $row['tonggia'] ?></td>
+            <td><?php echo $row['phuongthucthanhtoan'] ?></td>
+            <td><?php echo $row['trangthai'] ?></td>
         </tbody>
     <?php $i++;
         }
@@ -70,8 +84,10 @@
         }
 
         $startinglimit = ($npage - 1) * $numberPages;
-        $sql = "select ct.madonhang, sp.tensanpham, ct.soluong FROM chitietdonhang ct, sanpham sp
-        WHERE sp.masanpham = ct.masanpham LIMIT $startinglimit, $numberPages";
+        $sql = "sELECT ctd.madonhang, kh.hoten, kh.sodienthoai, kh.diachi, sp.tensanpham,ctd.soluong,dh.tonggia,dh.phuongthucthanhtoan,dh.trangthai FROM chitietdonhang ctd, khachhang kh, donhang dh, sanpham sp 
+        WHERE ctd.madonhang = dh.madonhang
+        AND ctd.masanpham = sp.masanpham
+        AND dh.makhachhang = kh.makhachhang LIMIT $startinglimit, $numberPages";
 
         $result = mysqli_query($conn, $sql);
 
@@ -80,10 +96,16 @@
     ?>
 
         <tbody>
-            <td><?php echo $i ?></td>
+        <td><?php echo $i ?></td>
             <td><?php echo $row['madonhang'] ?></td>
+            <td><?php echo $row['hoten'] ?></td>
+            <td><?php echo $row['sodienthoai'] ?></td>
+            <td><?php echo $row['diachi'] ?></td>
             <td><?php echo $row['tensanpham'] ?></td>
             <td><?php echo $row['soluong'] ?></td>
+            <td><?php echo $row['tonggia'] ?></td>
+            <td><?php echo $row['phuongthucthanhtoan'] ?></td>
+            <td><?php echo $row['trangthai'] ?></td>
         </tbody>
     <?php $i++;
         }

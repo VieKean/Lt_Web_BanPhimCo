@@ -17,7 +17,7 @@ if (isset($_SESSION['user'])) {
 
     <body>
         <div class="container">
-            <div class="menu"><?php require("blocks/menu.php") ?></div>
+            
             <div class="content row">
                 <div class="toggle">
                     <a class="fa-solid fa-bars"></a>
@@ -29,6 +29,7 @@ if (isset($_SESSION['user'])) {
                 }
                 ?>
             </div>
+            <div class="menu"> <?php require("blocks/menu.php")?> </div>
         </div>
     </body>
 <?php

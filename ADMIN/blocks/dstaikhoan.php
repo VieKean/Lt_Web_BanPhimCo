@@ -81,7 +81,7 @@
 
     $num = mysqli_num_rows($result);
     // số lượng sản phẩm 1 trang
-    $numberPages = 4;
+    $numberPages = 9;
 
     $totalPages = ceil($num / $numberPages);
     echo '<div class="btn-pagination">';
