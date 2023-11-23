@@ -69,6 +69,7 @@ function layMaloai($conn, $id)
 
 <!-- text area -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 <!-- Thêm hình -->
 <script>
     function chooseFile(event) {
@@ -77,22 +78,6 @@ function layMaloai($conn, $id)
             var preview = document.getElementById("hinhanh");
             preview.src = src;
             preview.style.display = "inline-block";
-        }
-    }
-</script>
-
-<!-- Giảm số ký tự in ra bằng chữ xem thêm, bấm vô mới coi hết đc -->
-<script>
-    function toggleDescription(id) {
-        var moreText = document.getElementById("more" + id);
-        var btnText = document.getElementById("myBtn" + id);
-
-        if (moreText.style.display === "none") {
-            moreText.style.display = "inline";
-            btnText.innerHTML = "Ẩn";
-        } else {
-            moreText.style.display = "none";
-            btnText.innerHTML = "Xem Thêm";
         }
     }
 </script>

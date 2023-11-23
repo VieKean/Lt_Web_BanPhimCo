@@ -26,8 +26,14 @@
         box-sizing: border-box;
     }
 
+    #mota-wrapper {
+        max-height: 140px;
+        overflow-y: auto;
+    }
+
     #mota {
         text-align: justify;
+        max-width: 800px;
     }
 
     .top-table {
@@ -37,7 +43,7 @@
         align-items: center;
     }
 
-    #search-container input[type="text"]{
+    #search-container input[type="text"] {
         width: 350px;
         min-height: 30px;
         padding: 10px 20px;
@@ -47,7 +53,7 @@
         background: none;
     }
 
-    #search-container button{
+    #search-container button {
         height: 36px;
         width: 90px;
         border: thin solid #222;
@@ -59,7 +65,7 @@
         transition: 0.3s;
     }
 
-    #search-container button:hover{
+    #search-container button:hover {
         background-color: #254753;
         color: #fff;
         transition: 0.3s;
@@ -95,6 +101,7 @@
         background-color: #fff;
         border: thin solid #254753;
     }
+
 </style>
 <?php
 if (isset($_POST['del'])) {
@@ -144,14 +151,14 @@ if (isset($_POST['del'])) {
     } else {
         $sql = "SELECT * FROM sanpham sp, loai l WHERE sp.loai = l.maloai";
     }
-    
+
     if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
         $keyword = $_GET['keyword'];
         $sql .= " AND (sp.tensanpham LIKE '%$keyword%' OR sp.mota LIKE '%$keyword%')";
     }
-    
+
     $sql .= " LIMIT " . $startinglimit . ',' . $numberPages;
-    
+
     $result = mysqli_query($conn, $sql);
 
     $i = $startinglimit + 1;
@@ -166,23 +173,29 @@ if (isset($_POST['del'])) {
             <td>
                 <img width="100px" height="100px" src="../ASSETS/img/IMG-Product/<?php echo $row['hinhanh'] ?>">
             </td>
-            <td id="mota">
-                <?php
-                $mota = $row['mota'];
-                $lim = 50;
-                if (mb_strlen($mota, 'UTF-8') > $lim) {
-                    $mota = mb_substr($mota, 0, $lim, 'UTF-8') . '<span id="more' . $i . '" style="display:none;">' . mb_substr($mota, $lim, null, 'UTF-8') . '</span><a href="javascript:void(0);" onclick="toggleDescription(' . $i . ')" id="myBtn' . $i . '">Xem Thêm</a>';
-                }
-                echo $mota;
-                ?>
+            <td>
+                <div id="mota-wrapper">
+                    <div id="mota">
+                        <?php
+                        $mota = $row['mota'];
+                        $lim = 50;
+                        if (mb_strlen($mota, 'UTF-8') > $lim) {
+                            $mota = mb_substr($mota, 0, $lim, 'UTF-8') . '<span id="more' . $i . '" style="display:none;">' . mb_substr($mota, $lim, null, 'UTF-8') . '</span><a href="javascript:void(0);" onclick="toggleDescription(' . $i . ')" id="myBtn' . $i . '">Xem Thêm</a>';
+                        }
+                        echo $mota;
+                        ?>
+                    </div>
+                </div>
             </td>
             <td><?php echo $row['tenloai'] ?></td>
-            <td class="my_button">
+            <td>
+                <div class="my_button">
                 <a href="?page=capnhatsp&masanpham=<?php echo $row['masanpham'] ?>" class="fa-solid fa-screwdriver-wrench"></a>
                 <form method="post">
                     <input type="hidden" name="masanpham" value="<?php echo $row['masanpham'] ?>">
                     <button type="submit" name="del"><i class="fa-solid fa-trash-can"></i></button>
                 </form>
+                </div>
             </td>
 
         </tbody>
@@ -202,5 +215,20 @@ if (isset($_POST['del'])) {
         var keyword = document.getElementById("keyword").value;
 
         window.location.href = 'index.php?page=dssanpham&keyword=' + keyword;
+    }
+</script>
+<!-- Giảm số ký tự in ra bằng chữ xem thêm, bấm vô mới coi hết đc -->
+<script>
+    function toggleDescription(id) {
+        var moreText = document.getElementById("more" + id);
+        var btnText = document.getElementById("myBtn" + id);
+
+        if (moreText.style.display === "none") {
+            moreText.style.display = "inline";
+            btnText.innerHTML = "Ẩn";
+        } else {
+            moreText.style.display = "none";
+            btnText.innerHTML = "Xem Thêm";
+        }
     }
 </script>

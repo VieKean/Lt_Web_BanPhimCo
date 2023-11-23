@@ -52,6 +52,7 @@ body {
   background: var(--main_color);
   transition: 0.5s;
   overflow: hidden;
+  z-index: 101;
 }
 
 .menu.active {
@@ -268,7 +269,6 @@ tr td {
 
 .my_button {
   display: flex;
-  height: 120px;
   align-items: center;
   justify-content: center;
   border-left: none;
@@ -300,12 +300,17 @@ tr td {
 
 .main-table {
   position: relative;
+  margin-bottom: 50px;
 }
 
 .btn-pagination {
-  position: absolute;
-  bottom: 0;
-  left: 30%;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  padding-left: 300px;
+  background-color: #DBEBFD;
+  z-index: 100;
 }
 
 .btn-page {
