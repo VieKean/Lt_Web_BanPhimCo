@@ -66,18 +66,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // Lặp qua từng button và thêm sự kiện click
     buttons.forEach(function (button, index) {
         button.addEventListener('click', function () {
-            // Loại bỏ class 'btn-page-active' từ tất cả các button
+            // xóa class 'btn-page-active' từ tất cả các nút
             buttons.forEach(function (btn) {
                 btn.classList.remove('btn-page-active');
             });
 
-            // Thêm class 'btn-page-active' cho button được click
+            // Thêm lớp btn-page-active cho button được bấm
             this.classList.add('btn-page-active');
 
-            // Lưu trạng thái active vào sessionStorage
+            // Lưu active vào sessionStorage
             sessionStorage.setItem('activeButtonIndex', index);
 
-            // Lấy href từ thẻ a và chuyển hướng trang
+            // Lấy href 
             var href = this.querySelector('a').getAttribute('href');
             window.location.href = href;
         });

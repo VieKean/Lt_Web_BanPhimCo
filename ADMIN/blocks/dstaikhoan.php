@@ -31,9 +31,10 @@
         align-items: center;
         padding-right: 50px;
     }
-    #left-fl{
+
+    #left-fl {
         display: flex;
-        
+
     }
 
     .filterRole-container label {
@@ -118,7 +119,7 @@
             $sql .= " WHERE quyen = '0'";
         }
     }
-    
+
 
     $sql .= " LIMIT " . $startinglimit . ',' . $numberPages;
 

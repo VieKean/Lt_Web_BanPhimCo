@@ -76,7 +76,18 @@
             <td><?php echo $row['tonggia'] ?></td>
             <td><?php echo $row['phuongthucthanhtoan'] ?></td>
             <td><?php echo $row['tongsanpham'] ?></td>
-            <td><?php echo $row['trangthai'] ?></td>
+            <td>
+                    <form method="post" action="capNhatTrangThai.php" id="statusForm">
+                        <select name="trangthai" id="trangthaiSelect">
+                            <option value="Chờ xác nhận" <?php echo ($row['trangthai'] == 'Chờ xác nhận') ? 'selected' : ''; ?>>Chờ xác nhận</option>
+                            <option value="Đã xác nhận" <?php echo ($row['trangthai'] == 'Đã xác nhận') ? 'selected' : ''; ?>>Đã xác nhận</option>
+                            <option value="Đang giao hàng" <?php echo ($row['trangthai'] == 'Đang giao hàng') ? 'selected' : ''; ?>>Đang giao hàng</option>
+                            <option value="Đã giao hàng" <?php echo ($row['trangthai'] == 'Đã giao hàng') ? 'selected' : ''; ?>>Đã giao hàng</option>
+                        </select>
+                        <input type="hidden" name="madonhang" value="<?php echo $row['madonhang']; ?>" id="madonhangInput">
+                        <button type="submit" id="submitButton">Sửa</button>
+                    </form>
+                </td>
             <td><a class="fa-solid fa-list" href="?page=dschitietdonhang&madonhang=<?php echo
                                                                                     $row['madonhang'];
                                                                                     ?>"></a></td>
@@ -127,6 +138,28 @@
     height: 24px;
     width: 120px;
     padding: 0 10px;
+}
+
+#trangthaiSelect {
+    width: 150px; 
+    min-height: 32px;
+    padding: 0px 10px; 
+    outline: none;
+}
+
+
+#submitButton {
+    background-color: #254753;
+    color: white;
+    min-height: 32px;
+    padding: 0 16px;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+#submitButton:hover {
+    background-color: #667E86;
 }
 
 </style>

@@ -15,6 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Có lỗi xảy ra khi cập nhật trạng thái đơn hàng: " . mysqli_error($conn);
     }
 } else {
-    echo "Invalid request.";
+    echo "Lỗi Truy Vấn.";
 }
 ?>
